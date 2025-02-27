@@ -1,14 +1,19 @@
-import mongoose from "mongoose";
+import { createConnection } from "mysql2/promise";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_CNN);
-        console.log("✅ MongoDB conectado");
+        const connection = await createConnection({
+            host: process.env.DB_HOST,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD,
+            database: process.env.DB_NAME
+        });
+        console.log("✅ MySQL conectado");
     } catch (error) {
-        console.error("❌ Error al conectar a MongoDB:", error);
+        console.error("❌ Error al conectar a MySQL:", error);
         process.exit(1);
     }
 };
