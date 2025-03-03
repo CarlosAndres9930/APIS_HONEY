@@ -1,53 +1,76 @@
-import { Schema } from 'mongoose';
+import { DataTypes } from 'sequelize';
+import sequelize from '../config/sequelize.js';
 
-// Definir el esquema de Specimen (Ejemplares)
-const SpecimenSchema = new Schema({
+// Define the Specimen model
+const Specimen = sequelize.define('Specimen', {
     name: {
-        type: String,
-        required: [true, 'The name is required'],
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        },
     },
     birthDate: {
-        type: Date,
-        required: [true, 'The birth date is required'],
+        type: DataTypes.DATE,
+        allowNull: false,
+        validate: {
+            notNull: { msg: 'The birth date is required' },
+        },
     },
     paso: {
-        type: String,
-        required: [true, 'The paso is required'],
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        },
     },
     color: {
-        type: String,
-        required: [true, 'The color is required'],
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        },
     },
     owner: {
-        type: String,
-        required: [true, 'The owner is required'],
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        },
     },
     cedula: {
-        type: String,
-        required: [true, 'The cedula is required'],
-        minLength: [10, 'Min 10 characters'],
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: { msg: 'The cedula is required' },
+            len: {
+                args: [10, 10],
+                msg: 'Min 10 characters',
+            },
+        },
     },
     email: {
-        type: String,
-        required: [true, 'The email is required'],
-    } 
-}, { 
-    versionKey: false 
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+        },
+    },
+}, {
+    tableName: 'specimens',
+    timestamps: false,
 });
 
-// Virtual para calcular la edad en meses
-SpecimenSchema.virtual('ageInMonths').get(function () {
+// Virtual method to calculate age in months
+Specimen.prototype.ageInMonths = function () {
     const today = new Date();
     const birthDate = new Date(this.birthDate);
-
     let ageInMonths = (today.getFullYear() - birthDate.getFullYear()) * 12;
     ageInMonths += today.getMonth() - birthDate.getMonth();
-
     if (today.getDate() < birthDate.getDate()) {
         ageInMonths--;
     }
-
     return ageInMonths;
-});
+};
 
-export default SpecimenSchema;
+export default Specimen;

@@ -3,8 +3,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 
-import medicinaRoutes from "./routes/medicinaRoutes.js"; // Importing medicina routes
-import categoryRoutes from "./routes/categoryRoutes.js"; // Importing category routes
+import medicinaRoutes from "./routes/medicinaRoutes.js"; 
+import specimenRoutes from "./routes/specimenRoutes.js"; 
+import categoryRoutes from "./routes/categoryRoutes.js"; 
+
 
 dotenv.config();
 connectDB();
@@ -14,7 +16,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/medicinas", medicinaRoutes); // Adding medicina routes
-app.use("/api/categories", categoryRoutes); // Adding category routes
+app.use("/api/medicinas", medicinaRoutes);
+app.use("/api/specimens", specimenRoutes); 
+app.use("/api/categories", categoryRoutes); 
+
 
 export default app;
