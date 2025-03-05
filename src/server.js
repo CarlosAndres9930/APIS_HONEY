@@ -18,7 +18,8 @@ app.use(cors());
 
 app.use("/api/medicinas", medicinaRoutes);
 app.use("/api/specimens", specimenRoutes); 
-app.use("/api/categories", categoryRoutes); 
+app.use("/api/categories", categoryRoutes);
+app.use("/api/sedes", sedeRoutes);
 
 
 export default app;
