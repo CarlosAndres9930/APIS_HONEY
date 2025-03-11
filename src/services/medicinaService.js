@@ -1,6 +1,7 @@
 import * as medicinaRepo from '../repositories/medicinaRepository.js';
 
 export const getMedicinas = async () => {
+
     return await medicinaRepo.getAllMedicinas();
 };
 

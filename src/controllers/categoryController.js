@@ -1,4 +1,5 @@
-import Category from '../models/category.js'; // Importing the default export of Category model
+import Category from '../models/category.js'; 
+
 
 
 // Get all categories
