@@ -1,17 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { DataTypes } from 'sequelize';
 import sequelize from '../config/sequelize.js'; // Assuming you have a sequelize instance configured
 

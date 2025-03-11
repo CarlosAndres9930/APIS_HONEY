@@ -5,11 +5,8 @@ import { createCategoryController, getAllCategoriesController, updateCategoryCon
 const router = express.Router();
 
 router.get('/', getAllCategoriesController); 
-router.put('/:id', updateCategoryController); // Adding update category route
-router.delete('/:id', deleteCategoryController); // Adding delete category route
-
-
-
+router.put('/:id', updateCategoryController); 
+router.delete('/:id', deleteCategoryController); 
 router.post('/', createCategoryController); 
 
 export default router;

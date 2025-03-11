@@ -5,7 +5,8 @@ import { validateSpecimen, handleValidationErrors } from '../middlewares/validat
 
 const router = express.Router();
 
-router.post('/', validateSpecimen, handleValidationErrors, createSpecimenController);
+router.post('/', validateSpecimen, createSpecimenController);
+
 router.get('/', getAllSpecimensController); 
 router.get('/:id', getSpecimenByIdController); 
 router.put('/:id', validateSpecimen, handleValidationErrors, updateSpecimenController); 

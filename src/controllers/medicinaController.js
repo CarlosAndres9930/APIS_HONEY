@@ -1,11 +1,13 @@
 import * as medicinaService from '../services/medicinaService.js';
-import { validateMedicina } from '../middlewares/validationMedicina.js';
-
 
 export const getMedicinas = async (req, res) => {
+    console.log("Fetching medicinas..."); // Log the fetching process
     try {
         const medicinas = await medicinaService.getMedicinas();
-        res.json(medicinas);
+
+
+        res.json(medicinas); // Send the retrieved medicinas as a response
+
     } catch (error) {
         res.status(500).json({ message: error.message });
     }

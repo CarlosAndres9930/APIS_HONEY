@@ -7,8 +7,8 @@ const Sede = sequelize.define('Sede', {
         allowNull: false
     }
 }, {
-    tableName: 'sedes', // Specify the table name if it differs from the model name
-    timestamps: false // Disable timestamps if not needed
+    tableName: 'sedes', 
+    timestamps: false 
 });
 
 export default Sede;

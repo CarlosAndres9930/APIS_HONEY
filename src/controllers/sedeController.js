@@ -1,15 +1,15 @@
-// Importamos el módulo sedeService, que contiene las funciones para manejar la lógica de negocio de las sedes.
 import * as sedeService from "../services/sedeService.js";
 
 // Controlador para obtener todas las sedes.
 export const getSedes = async (req, res) => {
     try {
-        // Llamamos al servicio para listar todas las sedes.
-        const sedes = await sedeService.listSedes();
-        // Enviamos la respuesta en formato JSON con las sedes obtenidas.
+    const sedes = await sedeService.listSedes()
+    if (!sedes || sedes.length === 0) {
+        return res.status(404).json({ message: "No sedes found" });
+    }
         res.json(sedes);
     } catch (error) {
-        // Si ocurre un error, enviamos un código 500 (error interno del servidor).
+        console.error(error);
         res.status(500).json({ message: "Error al obtener las sedes" });
     }
 };

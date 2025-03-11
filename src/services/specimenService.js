@@ -6,7 +6,8 @@ export const createSpecimen = async (data) => {
         const specimen = await Specimen.create(data);
         return specimen;
     } catch (error) {
-        throw error;
+        console.error('Error creating specimen:', error.message);
+        throw new Error('Error creating specimen'); 
     }
 };
 
