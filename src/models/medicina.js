@@ -7,17 +7,18 @@ const Medicina = sequelize.define('Medicina', {
         allowNull: false
     },
     Cantidad: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER, // Changed to INTEGER for numeric values
         allowNull: false
     },
     Dosis: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER, // Changed to INTEGER for numeric values
         allowNull: false
     },
     HorarioAdministracion: {
-        type: DataTypes.STRING,
+        type: DataTypes.TIME, // Changed to TIME for time values
         allowNull: false
     },
+
     Estado: {
         type: DataTypes.STRING,
         allowNull: false
