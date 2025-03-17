@@ -1,0 +1,7 @@
+{
+    "NombreMedicina": "Aspirina",
+    "Cantidad": 10,
+    "Dosis": 500,
+    "HorarioAdministracion": "14:30",
+    "Estado": "Activo"
+}
